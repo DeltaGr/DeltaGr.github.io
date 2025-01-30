@@ -4,10 +4,11 @@ interface Props {
 	block?: boolean;
 	style?: 'primary';
 	class?: string;
+	path?: string; // Add path as optional prop
 	[x: string]: any;
 }
 
-const { size = 'md', style = 'primary', block, class: className, ...rest } = Astro.props;
+const { size = 'md', style = 'primary', block, class: className, path, ...rest } = Astro.props;
 
 const sizes = {
 	sm: 'px-4 py-1.5',
@@ -16,18 +17,36 @@ const sizes = {
 };
 
 const styles = {
-	primary: 'bg-black text-white hover:bg-orange  border-2 border-transparent',
+	primary: 'bg-black text-white hover:bg-blue border-2 border-transparent',
 };
 ---
 
-<button
-	{...rest}
-	class:list={[
-		'rounded-xl text-center transition focus-visible:ring-2 ring-offset-2 ring-orange',
-		block && 'w-full',
-		sizes[size],
-		styles[style],
-		className,
-	]}
-	><slot />
-</button>
+{/* Check if path exists, render anchor or button accordingly */}
+{path ? (
+	<a
+		href={path}
+		{...rest}
+		class:list={[
+			'rounded-xl text-center transition focus-visible:ring-2 ring-offset-2 ring-orange',
+			block && 'w-full',
+			sizes[size],
+			styles[style],
+			className,
+		]}
+	>
+		<slot />
+	</a>
+) : (
+	<button
+		{...rest}
+		class:list={[
+			'rounded-xl text-center transition focus-visible:ring-2 ring-offset-2 ring-orange',
+			block && 'w-full',
+			sizes[size],
+			styles[style],
+			className,
+		]}
+	>
+		<slot />
+	</button>
+)}

@@ -1,7 +1,8 @@
 ---
-import projectImage from '@assets/images/project.png';
+import skyImage from '@assets/images/sky.jpg';
 import Tags from '@components/ui/Tags.astro';
 import { Image } from 'astro:assets';
+
 
 interface Props {
 	url?: string;
@@ -28,10 +29,10 @@ const {
 	>
 		<a href={url} aria-label="link to project">
 			<div class="relative flex items-end overflow-hidden rounded-xl">
-				<Image src={projectImage} alt={alt} format="png" width={400} height={400} loading="eager" />
+				<Image src={skyImage} alt={alt} format="jpg" width={400} height={200} loading="eager" />
 			</div>
 			<div class="mt-1 p-2">
-				<h3 class="text-xl text-orange lg:text-2xl">{title}</h3>
+				<h3 class="text-xl text-blue lg:text-2xl">{title}</h3>
 				<p class="text-s text-black">{description}</p>
 				<Tags tags={tags} />
 			</div>

@@ -1,8 +1,8 @@
 ---
 inProgress: false
-title: Project title
-description: Project description
+title: Flat Rent
+description: AirBnb Clone - apartment rental specialized in european market.
 img_alt: project image alt text
-link: https://github.com/veranikabarel?tab=repositories
-tags: ['React', 'CSS', 'Typescript']
+link: https://github.com/
+tags: ['Ruby on Rails', 'CSS', 'Stimulus']
 ---

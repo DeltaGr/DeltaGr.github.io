@@ -3,6 +3,8 @@ import Footer from '@components/Footer.astro';
 import Navbar from '@components/Navbar.astro';
 import { SEO } from 'astro-seo';
 
+
+
 export interface LayoutProps {
 	title: string;
 }
@@ -26,17 +28,19 @@ const { title = 'John Doe | Web developer' } = Astro.props as LayoutProps;
 		<title>{title}</title>
 	</head>
 	<body
-		class="mx-auto max-w-screen-xl bg-white px-5 font-sans text-white dark:bg-black xs:text-[16px] md:text-[18px]"
+		class="mx-auto max-w-screen-xl bg-[url('/luke.jpg')] px-5 font-sans text-white dark:bg-[url('/cesar.jpg')] xs:text-[16px] md:text-[18px]"
 	>
 		<Navbar />
 		<slot />
+
 		<Footer />
 		<style is:global>
+
 			/* Improve Page speed */
 			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
 			img {
-				content-visibility: auto;
-			}
+        content-visibility: auto;
+      }
 		</style>
 	</body>
 </html>
